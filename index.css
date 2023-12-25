@@ -1,0 +1,161 @@
+:root {
+  --hour: 0deg;
+  --hour2: 0deg;
+  --min: 0deg;
+  --min2: 0deg;
+  --sec: 0deg;
+  --sec2: 0deg;
+  --bgc: #fefefe;
+  --circlebgc: #fefefe;
+  --shadowdark: rgba(0, 0, 0, 0.28);
+  --shadowbright: rgba(255, 255, 255, 0.68);
+  --circleborder: rgb(175, 175, 175);
+  --hourniddle: rgb(67, 67, 67);
+  --minniddle: rgb(184, 183, 183);
+  --secniddle: tomato;
+  --btnbgc: black;
+  --btncolor: white;
+  --hoverbgc: rgb(184, 183, 183);
+  --hovercolor: black;
+  --h1color: black;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bgc);
+}
+.digital {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+h1 {
+  color: var(--h1color);
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bgc);
+}
+
+.outerCircle {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--circlebgc);
+  box-shadow: 10px 10px 15px var(--shadowdark),
+    inset 5px 5px 5px var(--shadowbright);
+  border: 1px solid var(--circleborder);
+}
+.innerCircle {
+  background-color: var(--bgc);
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 10px 10px 15px var(--shadowdark);
+  border: 1px solid var(--circleborder);
+}
+
+.hourNiddle {
+  width: 10px;
+  height: 50px;
+  border-radius: 5px;
+  position: absolute;
+  background-color: var(--hourniddle);
+  animation: circlehour 21600s infinite linear;
+  margin-bottom: 62.5px;
+  box-shadow: 10px 10px 15px var(--shadowdark),
+    -10px -10px 15px var(--shadowbright);
+}
+
+.minNiddle {
+  width: 8px;
+  height: 110px;
+  border-radius: 5px;
+  position: absolute;
+  background-color: var(--minniddle);
+  animation: circlemin 3600s infinite linear;
+  margin-bottom: 125px;
+  box-shadow: 10px 10px 15px var(--shadowdark),
+    -10px -10px 15px var(--shadowbright);
+}
+
+.secNiddle {
+  width: 4px;
+  height: 110px;
+  position: absolute;
+  background-color: var(--secniddle);
+  animation: circlesec 60s infinite linear;
+  margin-bottom: 125px;
+  box-shadow: 10px 10px 15px var(--shadowdark),
+    -10px -10px 15px var(--shadowbright);
+}
+
+@keyframes circlehour {
+  0% {
+    transform-origin: bottom;
+    transform: rotateZ(var(--hour));
+  }
+  100% {
+    transform-origin: bottom;
+    transform: rotateZ(var(--hour2));
+  }
+}
+
+@keyframes circlemin {
+  0% {
+    transform-origin: bottom;
+    transform: rotateZ(var(--min));
+  }
+  100% {
+    transform-origin: bottom;
+    transform: rotateZ(var(--min2));
+  }
+}
+
+@keyframes circlesec {
+  0% {
+    transform-origin: bottom;
+    transform: rotateZ(var(--sec));
+  }
+  100% {
+    transform-origin: bottom;
+    transform: rotateZ(var(--sec2));
+  }
+}
+
+#btn {
+  width: 100px;
+  height: 30px;
+  border: 0;
+  outline: 0;
+  margin: 30px;
+  background-color: var(--btnbgc);
+  color: var(--btncolor);
+  border-radius: 15px;
+}
+:hover#btn {
+  color: var(--hovercolor);
+  background-color: var(--hoverbgc);
+}
